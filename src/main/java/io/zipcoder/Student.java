@@ -36,10 +36,11 @@ public class Student {
     public int getNumberOfExamsTaken(){
         return studentTestResult.size();
     }
+
     public String getExamScores(){
-        String examScore = "Exam Scores: /n";
-        for (int i=0;i>studentTestResult.size();i++){
-            examScore+=String.format("\tExam %d -> %.0f",i+1,studentTestResult.get(i));
+        String examScore = "Exam Scores: \n";
+        for (int i=0;i<studentTestResult.size();i++){
+            examScore+=String.format("\tExam %d -> %.0f %n",i+1,studentTestResult.get(i));
         }
         return examScore;
     }
@@ -57,8 +58,8 @@ public class Student {
         return average/studentTestResult.size();
     }
     public String toString(){
-        String result = "Student Name: "+firstName+lastName + "/n";
-        result += String.format("> Average Score: %.0f /n", this.getAverageExamScore());
+        String result = "Student Name: "+firstName+lastName + "\n";
+        result += String.format("> Average Score: %.0f \n", this.getAverageExamScore());
         result += getExamScores();
         return result;
     }
