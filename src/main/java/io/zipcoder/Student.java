@@ -48,7 +48,8 @@ public class Student {
         studentTestResult.add(score);
     }
     public void setExamScore(int examNumber, double newScore){
-        studentTestResult.add(examNumber,newScore);
+        studentTestResult.remove(examNumber-1);
+        studentTestResult.add(examNumber-1,newScore);
     }
     public double getAverageExamScore(){
         double average=0;
