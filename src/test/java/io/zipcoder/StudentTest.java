@@ -197,7 +197,7 @@ public class StudentTest {
         System.out.println(examScore);
 
         //Then
-        Assert.assertFalse(examScore.contains("50"));
+        Assert.assertFalse(examScore.contains("100"));
     }
     @Test
     public void getAverageScoreTest(){
@@ -209,7 +209,7 @@ public class StudentTest {
         double expectedAverage=50.0, actual=student.getAverageExamScore();
 
         //Then
-        Assert.assertEquals(expectedAverage,actual);
+        Assert.assertEquals(expectedAverage,actual,0);
     }
     @Test
     public void getAverageScoreTest1(){
@@ -222,7 +222,7 @@ public class StudentTest {
 
         //Then
         Assert.assertFalse(student.getAverageExamScore()==100.0);
-        Assert.assertEquals(expectedAverage,actual);
+        Assert.assertEquals(expectedAverage, actual,0);
     }
     @Test
     public void toStringTest(){

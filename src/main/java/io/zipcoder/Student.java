@@ -52,7 +52,7 @@ public class Student {
     }
     public double getAverageExamScore(){
         double average=0;
-        for (int i=0; i>studentTestResult.size();i++){
+        for (int i=0; i<studentTestResult.size();i++){
             average+=studentTestResult.get(i);
         }
         return average/studentTestResult.size();
