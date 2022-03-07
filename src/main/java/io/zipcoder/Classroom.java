@@ -74,7 +74,7 @@ public class Classroom {
                 count = classroom.length;
         }
         for (int i=0;i<count;i++){
-            percentile = ((count-i)/(count))*(100.0);
+            percentile = ((count-i-1.0)/(count))*100;
             name= classroomSorted[i].getFirstName() +" "+classroomSorted[i].getLastName();
             if (percentile >= 90)
                 gradeBook.put(name,"A");

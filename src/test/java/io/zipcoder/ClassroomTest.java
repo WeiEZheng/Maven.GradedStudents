@@ -215,9 +215,8 @@ public class ClassroomTest {
         Classroom classroom = new Classroom(studentList);
         //When
         Map<String, String> gradeBook= classroom.getGradeBook();
-        System.out.println(gradeBook.toString());
         //Then
-        Assert.assertEquals("A",gradeBook.get("z z"));
+        Assert.assertEquals("C",gradeBook.get("z z"));
         Assert.assertEquals("F",gradeBook.get("first last"));
     }
 }
