@@ -51,27 +51,20 @@ public class Classroom {
         }
     }
     public Student[] getStudentsByScore(){
-        List <Student> studentSortedList = Arrays.asList(classroom);
+        List <Student> studentSortedList = new ArrayList<>(Arrays.asList(classroom));
+        studentSortedList.removeAll(Collections.singleton(null));
         Comparator<Student> comparator =
                 Comparator.comparingDouble((Student s) -> -s.getAverageExamScore() )
                         .thenComparing(s -> s.getLastName())
                         .thenComparing(s -> s.getFirstName());
         Collections.sort(studentSortedList,comparator);
-        return studentSortedList.toArray(new Student[classroom.length]);
+        return studentSortedList.toArray(new Student[studentSortedList.size()]);
     }
     public Map<Student, String> getGradeBook(){
-        int count=0;
         Double percentile;
         Student[] classroomSorted = this.getStudentsByScore();
         Map<Student,String> gradeBook = new HashMap<>();
-        for (int i=0; i<classroom.length;i++){
-            if (classroom[i]==null) {
-                count = i + 1;
-                break; //Assuming array has null at end and no students between nulls
-            }
-            else if (classroom.length-1==i)
-                count = classroom.length;
-        }
+        int count= getStudentsByScore().length;
         for (int i=0;i<count;i++){
             percentile = ((count-i-1.0)/(count))*100;
             if (percentile >= 90)

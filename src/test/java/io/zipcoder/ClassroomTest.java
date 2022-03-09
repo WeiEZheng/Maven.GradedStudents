@@ -199,7 +199,7 @@ public class ClassroomTest {
         student.setLastName("z");
         student.setFirstName("z");
         student1.setExamScore(1, 100);
-        Student[] studentList= new Student[]{student1,student},studentList1;
+        Student[] studentList= new Student[]{student1,student, null, null},studentList1;
         Classroom classroom = new Classroom(studentList);
         //When
         studentList1 = classroom.getStudentsByScore();
