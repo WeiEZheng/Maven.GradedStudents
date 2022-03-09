@@ -54,7 +54,7 @@ public class Classroom {
         List <Student> studentSortedList = Arrays.asList(classroom);
         Comparator<Student> comparator =
                 Comparator.comparingDouble((Student s) -> -s.getAverageExamScore() )
-                        .thenComparing(s-> s.getLastName())
+                        .thenComparing(s -> s.getLastName())
                         .thenComparing(s -> s.getFirstName());
         Collections.sort(studentSortedList,comparator);
         return studentSortedList.toArray(new Student[classroom.length]);
