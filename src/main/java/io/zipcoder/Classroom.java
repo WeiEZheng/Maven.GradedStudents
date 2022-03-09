@@ -59,12 +59,11 @@ public class Classroom {
         Collections.sort(studentSortedList,comparator);
         return studentSortedList.toArray(new Student[classroom.length]);
     }
-    public Map<String, String> getGradeBook(){
+    public Map<Student, String> getGradeBook(){
         int count=0;
         Double percentile;
-        String name;
         Student[] classroomSorted = this.getStudentsByScore();
-        Map<String,String> gradeBook = new HashMap<>();
+        Map<Student,String> gradeBook = new HashMap<>();
         for (int i=0; i<classroom.length;i++){
             if (classroom[i]==null) {
                 count = i + 1;
@@ -75,17 +74,16 @@ public class Classroom {
         }
         for (int i=0;i<count;i++){
             percentile = ((count-i-1.0)/(count))*100;
-            name= classroomSorted[i].getFirstName() +" "+classroomSorted[i].getLastName();
             if (percentile >= 90)
-                gradeBook.put(name,"A");
+                gradeBook.put(classroomSorted[i],"A");
             else if (percentile <= 89 && percentile >= 71)
-                gradeBook.put(name,"B");
+                gradeBook.put(classroomSorted[i],"B");
             else if (percentile <= 70 && percentile >= 50)
-                gradeBook.put(name,"C");
+                gradeBook.put(classroomSorted[i],"C");
             else if (percentile <= 49 && percentile >= 11)
-                gradeBook.put(name,"D");
+                gradeBook.put(classroomSorted[i],"D");
             else
-                gradeBook.put(name, "F");
+                gradeBook.put(classroomSorted[i], "F");
         }
         return gradeBook;
     }

@@ -211,12 +211,12 @@ public class ClassroomTest {
         //Given
         student.setLastName("z");
         student.setFirstName("z");
-        Student[] studentList= new Student[]{student1,student},studentList1;
+        Student[] studentList= new Student[]{student1,student};
         Classroom classroom = new Classroom(studentList);
         //When
-        Map<String, String> gradeBook= classroom.getGradeBook();
+        Map<Student, String> gradeBook= classroom.getGradeBook();
         //Then
-        Assert.assertEquals("C",gradeBook.get("z z"));
-        Assert.assertEquals("F",gradeBook.get("first last"));
+        Assert.assertEquals("C",gradeBook.get(student));
+        Assert.assertEquals("F",gradeBook.get(student1));
     }
 }
